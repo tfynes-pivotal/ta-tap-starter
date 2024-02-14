@@ -5,11 +5,72 @@ accelerator:
   - beta
 
   options:
-  # Question 1. TAP GitOps Installation Project name
-  - name: projectName
-    label: TAP GitOps Installer PROJECT NAME
-    defaultValue: tap-gitops-demo
-    description: Default name for git project that will contain your customized TAP GitOps repo.
+  - name: workloadName
+    label: Application Name
+    description: "Application / TAP Workload Name"
+    defaultValue: demoapp
+    inputType: text
+    display: true
+
+  - name: gitUrl
+    label: Application Git URL
+    description: Application Code Repo Location
+    defaultValue: "https://github.com/tfynes-pivotal/tdemo1"
+    inputType: text
+    display: true
+
+  - name: gitBranch
+    label: Application Git Branch
+    description: Application Code Repo Branch
+    defaultValue: "main"
+    inputType: text
+    display: true
+
+  - name: testScanPipelineEnabled
+    label: "Enable Test & Scan Supply Chain"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: false
+
+  - name: webWorkloadType
+    label: "Run as kNative Service"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: true
+
+  - name: autoconfigureActuatorsEnabled
+    label: "Enabled Actuator Auto-Configuration"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: true
+
+  - name: partOf
+    label: "Backstage Parent Component Name"
+    defaultValue: demoapp
+    inputType: text
+    display: true
+
+  - name: minimumInstanceCount
+    label: "Minimum instance count to keep running" 
+    defaultValue: "1"
+    inputType: text
+    display: true
+
+  - name: javaVersion
+    label: JVM version
+    inputType: radio
+    display: true
+    defaultValue: 21
+    choices:
+      - text: java11
+        value: 11
+      - text: java17
+        value: 17
+      - text: java21
+        value: 21
 
   # Question 2a. TAP GitOps Installation TARGET REPOSITORY
   - name: tapGitopsInstallationRepositoryUrl
