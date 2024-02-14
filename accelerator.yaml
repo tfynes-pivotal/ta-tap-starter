@@ -1,6 +1,6 @@
 accelerator:
-  displayName: TAP Installer for TAPv173
-  description: TAP v173+ Installer Setup Wizard
+  displayName: TAP Starter
+  description: Supplemental TAP starter configuration assets for Spring Initialized Projects
   tags:
   - beta
 
