@@ -5,21 +5,29 @@ kind: Workload
 metadata:
   name: #@ data.values.workloadName
   labels:
+    #@ if data.values.testScanPipelineEnabled:
     apps.tanzu.vmware.com/has-tests: "true"
+    #@ end
+    #@ if data.values.webWorkloadType:
     apps.tanzu.vmware.com/workload-type: web
+    #@ else
+    apps.tanzu.vmware.com/workload-type: server
+    #@ end
+    #@ if data.values.autoconifgureActuatorsEnabled:
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
-    app.kubernetes.io/part-of: jlong-tap-ftw
+    #@ end
+    app.kubernetes.io/part-of: #@ data.values.partOf
 spec:
   params:
   - name: annotations
     value:
-      autoscaling.knative.dev/min-scale: "1"
+      autoscaling.knative.dev/min-scale: #@ data.values.minimumInstanceCount
   build:
     env:
     - name: BP_JVM_VERSION
-      value: "21"
+      value: #@ data.values.jvmVersion
   source:
     git:
-      url: https://github.com/tfynes-pivotal/joshtest1
+      url: #@ data.values.gitUrl
       ref:
-        branch: main
+        branch: #@ data.values.gitBranch
