@@ -10,7 +10,7 @@ metadata:
     #@ end
     #@ if data.values.webWorkloadType:
     apps.tanzu.vmware.com/workload-type: web
-    #@ else
+    #@ else:
     apps.tanzu.vmware.com/workload-type: server
     #@ end
     #@ if data.values.autoconifgureActuatorsEnabled:
