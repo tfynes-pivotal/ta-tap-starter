@@ -129,6 +129,9 @@ engine:
     - include: ['postgres.yaml']
       chain:
       - type: YTT
+      - type: RewritePath
+        regex: "postgres\.yaml"
+        rewriteTo: "#postgresDbName + '.yaml'"
       condition: "#createPostgresDbEnabled"
 
 #       # - merge:
