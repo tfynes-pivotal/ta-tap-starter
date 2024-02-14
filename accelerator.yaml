@@ -130,7 +130,7 @@ engine:
       chain:
       - type: YTT
       - type: RewritePath
-        regex: "postgres\.yaml"
+        regex: "postgres.yaml"
         rewriteTo: "#postgresDbName + '.yaml'"
       condition: "#createPostgresDbEnabled"
 
