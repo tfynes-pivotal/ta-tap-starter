@@ -40,6 +40,18 @@ accelerator:
     inputType: checkbox
     defaultValue: true
 
+  - name: scaleToZeroEnabled
+    label: "Scale to Zero Instances"
+    description: "Scale to zero instances and launch automatically upon request"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: false
+    dependsOn:
+      name: webWorkloadType
+      value: true
+
+
   - name: autoconfigureActuatorsEnabled
     label: "Enable Actuator Auto-Configuration"
     display: true
@@ -59,7 +71,7 @@ accelerator:
     inputType: text
     display: true
     dependsOn: 
-      name: webWorkloadType
+      name: scaleToZeroEnabled
       value: false
 
   - name: jvmVersion
