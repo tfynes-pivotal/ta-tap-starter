@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: services.apps.tanzu.vmware.com/v1alpha1
 kind: ClassClaim
 metadata:
@@ -5,16 +7,15 @@ metadata:
     classclaims.services.apps.tanzu.vmware.com/xrd-name: xpostgresqlinstances.bitnami.database.tanzu.vmware.com
   finalizers:
   - classclaims.services.apps.tanzu.vmware.com/provision-finalizer
-  name: postgres1
-  namespace: default
+  name: #@ data.values.postgresDbName
 spec:
   classRef:
     name: postgresql-unmanaged
   parameters: {}
 
-#   kafka-unmanaged       Kafka by Bitnami
-#  mongodb-unmanaged     MongoDB by Bitnami
-#  mysql-unmanaged       MySQL by Bitnami
-#  postgresql-unmanaged  PostgreSQL by Bitnami
-#  rabbitmq-unmanaged    RabbitMQ by Bitnami
-#  redis-unmanaged       Redis by Bitnami
+#!   kafka-unmanaged       Kafka by Bitnami
+#!  mongodb-unmanaged     MongoDB by Bitnami
+#!  mysql-unmanaged       MySQL by Bitnami
+#!  postgresql-unmanaged  PostgreSQL by Bitnami
+#!  rabbitmq-unmanaged    RabbitMQ by Bitnami
+#!  redis-unmanaged       Redis by Bitnami
