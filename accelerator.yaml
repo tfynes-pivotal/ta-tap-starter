@@ -41,7 +41,7 @@ accelerator:
     defaultValue: true
 
   - name: autoconfigureActuatorsEnabled
-    label: "Enabled Actuator Auto-Configuration"
+    label: "Enable Actuator Auto-Configuration"
     display: true
     dataType: boolean
     inputType: checkbox
@@ -59,18 +59,18 @@ accelerator:
     inputType: text
     display: true
 
-  - name: javaVersion
+  - name: jvmVersion
     label: JVM version
     inputType: radio
     display: true
-    defaultValue: 21
+    defaultValue: "21"
     choices:
       - text: java11
-        value: 11
+        value: "11"
       - text: java17
-        value: 17
+        value: "17"
       - text: java21
-        value: 21
+        value: "21"
 
   # Question 2a. TAP GitOps Installation TARGET REPOSITORY
   - name: tapGitopsInstallationRepositoryUrl
