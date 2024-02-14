@@ -1,0 +1,21 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ClassClaim
+metadata:
+  annotations:
+    classclaims.services.apps.tanzu.vmware.com/xrd-name: xredisclusters.bitnami.caching.tanzu.vmware.com
+  finalizers:
+  - classclaims.services.apps.tanzu.vmware.com/provision-finalizer
+  name: #@ data.values.redisName
+spec:
+  classRef:
+    name: redis-unmanaged
+  parameters: {}
+
+#!   kafka-unmanaged       Kafka by Bitnami
+#!  mongodb-unmanaged     MongoDB by Bitnami
+#!  mysql-unmanaged       MySQL by Bitnami
+#!  postgresql-unmanaged  PostgreSQL by Bitnami
+#!  rabbitmq-unmanaged    RabbitMQ by Bitnami
+#!  redis-unmanaged       Redis by Bitnami
