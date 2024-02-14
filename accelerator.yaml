@@ -171,7 +171,13 @@ engine:
         regex: "rabbitmq.yaml"
         rewriteTo: "#rmqName + '.yaml'"
       condition: "#createRmqEnabled"
-
+    - include: ['mongodb.yaml']
+      chain:
+      - type: YTT
+      - type: RewritePath
+        regex: "mongodb.yaml"
+        rewriteTo: "#mongoDbName + '.yaml'"
+      condition: "#createMongoDbEnabled"
 
 
 
