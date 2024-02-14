@@ -12,6 +12,12 @@ accelerator:
     inputType: text
     display: true
 
+  - name: partOf
+    label: "Backstage Parent Component Name"
+    defaultValue: demoapp
+    inputType: text
+    display: true
+
   - name: gitUrl
     label: Application Git URL
     description: Application Code Repo Location
@@ -67,11 +73,6 @@ accelerator:
     inputType: checkbox
     defaultValue: true
 
-  - name: partOf
-    label: "Backstage Parent Component Name"
-    defaultValue: demoapp
-    inputType: text
-    display: true
 
   - name: jvmVersion
     label: JVM version
@@ -92,6 +93,9 @@ accelerator:
 engine: 
   chain:
   - include: ['spring-workload.yaml']
+    chain:
+    - type: YTT 
+  - include: ['component-info.yaml']
     chain:
     - type: YTT 
 

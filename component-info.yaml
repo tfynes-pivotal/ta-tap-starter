@@ -1,12 +1,14 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: tap-workload
+  name: #@ data.values.workloadName
   description: tap-workload-description
   tags:
     - v1alpha1
   annotations:
-    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=tap-workload"
+    "backstage.io/kubernetes-label-selector": #@ "app.kubernetes.io/part-of=" + data.values.partOf
 spec:
   type: service
   lifecycle: production
