@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tap-workload
+  description: tap-workload-description
+  tags:
+    - v1alpha1
+  annotations:
+    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=tap-workload"
+spec:
+  type: service
+  lifecycle: production
+  owner: default-org
+  system: unknown
