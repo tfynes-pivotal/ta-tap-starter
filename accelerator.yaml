@@ -51,6 +51,14 @@ accelerator:
       name: webWorkloadType
       value: true
 
+  - name: minimumInstanceCount
+    label: "Minimum instance count to keep running" 
+    defaultValue: "1"
+    inputType: text
+    display: true
+    dependsOn: 
+      name: scaleToZeroEnabled
+      value: false
 
   - name: autoconfigureActuatorsEnabled
     label: "Enable Actuator Auto-Configuration"
@@ -64,15 +72,6 @@ accelerator:
     defaultValue: demoapp
     inputType: text
     display: true
-
-  - name: minimumInstanceCount
-    label: "Minimum instance count to keep running" 
-    defaultValue: "1"
-    inputType: text
-    display: true
-    dependsOn: 
-      name: scaleToZeroEnabled
-      value: false
 
   - name: jvmVersion
     label: JVM version
