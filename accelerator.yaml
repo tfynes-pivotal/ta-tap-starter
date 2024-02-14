@@ -92,12 +92,13 @@ accelerator:
 
 engine: 
   chain:
-  - include: ['spring-workload.yaml']
-    chain:
-    - type: YTT 
-  - include: ['component-info.yaml']
-    chain:
-    - type: YTT 
+  - merge:
+    - include: ['spring-workload.yaml']
+      chain:
+      - type: YTT 
+    - include: ['component-info.yaml']
+      chain:
+      - type: YTT 
 
 
 #       # - merge:
