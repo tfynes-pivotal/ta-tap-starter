@@ -18,10 +18,12 @@ metadata:
     #@ end
     app.kubernetes.io/part-of: #@ data.values.partOf
 spec:
+  #@ if data.values.webWorkloadType:
   params:
   - name: annotations
     value:
       autoscaling.knative.dev/min-scale: #@ data.values.minimumInstanceCount
+  #@ end
   build:
     env:
     - name: BP_JVM_VERSION

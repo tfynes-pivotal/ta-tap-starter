@@ -58,6 +58,9 @@ accelerator:
     defaultValue: "1"
     inputType: text
     display: true
+    dependsOn: 
+      name: webWorkloadType
+      value: false
 
   - name: jvmVersion
     label: JVM version
