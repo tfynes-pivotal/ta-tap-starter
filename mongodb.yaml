@@ -1,0 +1,14 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ClassClaim
+metadata:
+  annotations:
+    classclaims.services.apps.tanzu.vmware.com/xrd-name: xmongodbinstances.bitnami.database.tanzu.vmware.com
+  finalizers:
+  - classclaims.services.apps.tanzu.vmware.com/provision-finalizer
+  name: #@ data.values.mongoDbName
+spec:
+  classRef:
+    name: mongodb-unmanaged
+  parameters: {}
