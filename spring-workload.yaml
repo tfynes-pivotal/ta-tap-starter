@@ -13,7 +13,7 @@ metadata:
     #@ else:
     apps.tanzu.vmware.com/workload-type: server
     #@ end
-    #@ if data.values.autoconifgureActuatorsEnabled:
+    #@ if data.values.autoconfigureActuatorsEnabled:
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     #@ end
     app.kubernetes.io/part-of: #@ data.values.partOf
