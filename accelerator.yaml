@@ -206,7 +206,12 @@ accelerator:
       name: createRedisEnabled
       value: true
 
-
+  - name: createGitHubRepo
+    label: "Create Project Github Repo"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: false
 
 
 
@@ -267,6 +272,17 @@ engine:
         regex: "redis.yaml"
         rewriteTo: "#redisName + '.yaml'"
       condition: "#createRedisEnabled"
+    - include: ['init-github-repo.sh']
+      chain:
+      - type: ReplaceText
+        substitutions:
+        - text: APP_NAME
+          with: "#workloadName"
+        - text: GITHUB_URL
+          with: "gitUrl"
+        - text: GIT_BRANCH
+          with: "gitBranch"
+      condition: "#createGitHubRepo"
 
 
 #       # - merge:
