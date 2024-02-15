@@ -222,13 +222,19 @@ engine:
   - merge:
     - include: ['spring-workload.yaml']
       chain:
-      - type: YTT 
+      - type: YTT
+      - type: RewritePath
+        regex: "spring-workload.yaml"
+        rewriteTo: "#workloadName + '-workload.yaml'"
     - include: ['component-info.yaml']
       chain:
       - type: YTT 
     - include: ['spring-native-workload.yaml']
       chain:
       - type: YTT
+      - type: RewritePath
+        regex: "spring-native-workload.yaml"
+        rewriteTo: "#workloadName + '-native-workload.yaml'"
       condition: "#nativeCompileEnabled"
     - include: ['postgres.yaml']
       chain:
