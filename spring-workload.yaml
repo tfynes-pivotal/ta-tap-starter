@@ -35,7 +35,7 @@ spec:
         branch: #@ data.values.gitBranch
   #@ if data.values.serviceBindingEnabled:
   serviceClaims:
-  - name: postgres1
+  - name: #@ data.values.serviceName
     ref:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
       kind: ClassClaim
