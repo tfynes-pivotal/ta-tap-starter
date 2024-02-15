@@ -20,6 +20,6 @@ k8s_custom_deploy(
 )
 
 k8s_resource('APP_NAME', port_forwards=["8080:8080"],
-            extra_pod_selectors=[{'carto.run/workload-name': 'si1','app.kubernetes.io/component': 'run'}])
+            extra_pod_selectors=[{'carto.run/workload-name': 'APP_NAME','app.kubernetes.io/component': 'run'}])
 
 allow_k8s_contexts('KUBE_CONTEXT')
