@@ -279,9 +279,9 @@ engine:
         - text: APP_NAME
           with: "#workloadName"
         - text: GITHUB_URL
-          with: "gitUrl"
+          with: "#gitUrl"
         - text: GIT_BRANCH
-          with: "gitBranch"
+          with: "#gitBranch"
       condition: "#createGitHubRepo"
 
 
