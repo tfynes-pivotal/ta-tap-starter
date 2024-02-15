@@ -33,3 +33,11 @@ spec:
       url: #@ data.values.gitUrl
       ref:
         branch: #@ data.values.gitBranch
+  #@ if data.values.serviceBindingEnabled:
+  serviceClaims:
+  - name: postgres1
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ClassClaim
+      name: #@ data.values.serviceName
+  #@ end

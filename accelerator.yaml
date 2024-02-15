@@ -73,6 +73,22 @@ accelerator:
     inputType: checkbox
     defaultValue: true
 
+  - name: serviceBindingEnabled
+    label: "Bind application to Service"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: false
+
+  - name: serviceName
+    label: "Service Name"
+    inputType: text
+    display: true
+    dependsOn: 
+      name: serviceBindingEnabled
+      value: true
+
+
   - name: nativeCompileEnabled
     label: "Natively Compile Application (spring native)"
     display: true
