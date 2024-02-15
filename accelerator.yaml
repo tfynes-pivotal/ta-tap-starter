@@ -307,13 +307,13 @@ engine:
     - include: ['Tilefile']
       chain:
       - type: ReplaceText
-      substitutions:
-      - text: APP_NAME
-        with: "#workloadName"
-      - text: WORKLOAD_FILENAME
-        with: "#workloadName + '-workload.yaml'"
-      - text: KUBE_CONTEXT
-        with: "#kubeContextName" 
+        substitutions:
+        - text: APP_NAME
+          with: "#workloadName"
+        - text: WORKLOAD_FILENAME
+          with: "#workloadName + '-workload.yaml'"
+        - text: KUBE_CONTEXT
+          with: "#kubeContextName" 
       condition: "#createTilefile"
 
 
