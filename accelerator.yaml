@@ -12,11 +12,51 @@ accelerator:
     inputType: text
     display: true
 
+
+  - name: provideComponentDetails
+    label: "Provide Backstage Component Details"
+    description: "Backstage Component details (defaults to app name)"
+    display: true
+    dataType: boolean
+    inputType: checkbox
+    defaultValue: false
+    
   - name: partOf
     label: "Backstage Parent Component Name"
     defaultValue: demoapp
     inputType: text
     display: true
+    dependsOn:
+      name: provideComponentDetails
+      value: true
+
+  - name: lifecycle
+    label: "Backstage component lifecycle"
+    defaultValue: production
+    inputType: text
+    display: true
+    dependsOn:
+      name: provideComponentDetails
+      value: true
+      
+  - name: owner
+    label: "Backstage component owner"
+    defaultValue: default-org
+    inputType: text
+    display: true
+    dependsOn:
+      name: provideComponentDetails
+      value: true
+
+  - name: system
+    label: "Backstage component system"
+    defaultValue: unknown
+    inputType: text
+    display: true
+    dependsOn:
+      name: provideComponentDetails
+      value: true
+      
 
   - name: gitUrl
     label: Application Git URL

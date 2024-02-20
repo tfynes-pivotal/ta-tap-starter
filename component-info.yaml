@@ -8,9 +8,19 @@ metadata:
   tags:
     - v1alpha1
   annotations:
+    #@ if provideComponentDetails:
     "backstage.io/kubernetes-label-selector": #@ "app.kubernetes.io/part-of=" + data.values.partOf
+    #@ else:
+    "backstage.io/kubernetes-label-selector": #@ "app.kubernetes.io/part-of=" + data.values.workloadName
+    #@ end
 spec:
   type: service
+  #@ if provideComponentDetails:
+  lifecycle: #@ data.values.lifecycle  
+  owner: #@ data.values.owner  
+  system: #@ data.values.system
+  #@ else:
   lifecycle: production
   owner: default-org
   system: unknown
+  #@ end
