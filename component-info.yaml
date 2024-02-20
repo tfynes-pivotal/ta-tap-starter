@@ -15,7 +15,7 @@ metadata:
     #@ end
 spec:
   type: service
-  #@ if provideComponentDetails:
+  #@ if data.values.provideComponentDetails:
   lifecycle: #@ data.values.lifecycle  
   owner: #@ data.values.owner  
   system: #@ data.values.system
