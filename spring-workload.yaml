@@ -16,7 +16,12 @@ metadata:
     #@ if data.values.autoconfigureActuatorsEnabled:
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     #@ end
+    #@ if provideComponentDetails:
     app.kubernetes.io/part-of: #@ data.values.partOf
+    #@ else:
+    app.kubernetes.io/part-of: #@ data.values.workloadName
+    #@ end
+
 spec:
   #@ if data.values.webWorkloadType:
   params:
