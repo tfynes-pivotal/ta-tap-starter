@@ -8,7 +8,7 @@ metadata:
   tags:
     - v1alpha1
   annotations:
-    #@ if provideComponentDetails:
+    #@ if data.values.provideComponentDetails:
     "backstage.io/kubernetes-label-selector": #@ "app.kubernetes.io/part-of=" + data.values.partOf
     #@ else:
     "backstage.io/kubernetes-label-selector": #@ "app.kubernetes.io/part-of=" + data.values.workloadName
